@@ -1,0 +1,349 @@
+/* ======================================================
+   RESERVATIONS PAGE – FULLY RESPONSIVE STRUCTURE
+   React Big Calendar Safe Version
+   ====================================================== */
+
+
+/* ======================================================
+   1️⃣ OUTER PAGE WRAPPER
+   ====================================================== */
+
+.reservation-page {
+  position: relative;
+  padding: 40px;
+  color: black;
+  font-weight: 500;
+}
+
+
+/* ======================================================
+   2️⃣ EDGE VIEW SWITCH (Desktop)
+   ====================================================== */
+
+.view-switch-edge {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+
+/* ======================================================
+   3️⃣ MAIN WHITE CARD
+   ====================================================== */
+
+.calendar-card {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ======================================================
+   4️⃣ CUSTOM TOOLBAR (Above RBC Toolbar)
+   ====================================================== */
+
+.calendar-toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toolbar-left { justify-self: start; }
+.toolbar-center { justify-self: center; }
+.toolbar-right { justify-self: end; }
+
+
+/* ======================================================
+   5️⃣ ROOM BADGE
+   ====================================================== */
+
+.room-badge {
+  background: #0d6ea8;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ======================================================
+   6️⃣ CALENDAR CONTAINER
+   ------------------------------------------------------
+   Important:
+   - Allows horizontal scroll ONLY if needed
+   - Prevents layout break
+   ====================================================== */
+
+.calendar-container {
+  margin-top: 10px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+/* ======================================================
+   7️⃣ BUSINESS RULE STYLING (Disabled Weekends)
+   ====================================================== */
+
+.rbc-day--disabled {
+  background-color: #f5f7fa !important;
+  opacity: 0.7;
+}
+
+.rbc-day--disabled .rbc-day-bg {
+  background-color: #f5f7fa !important;
+}
+
+.rbc-day--disabled .rbc-event {
+  opacity: 0.5;
+}
+
+
+/* ======================================================
+   8️⃣ REACT BIG CALENDAR TOOLBAR LABEL
+   ====================================================== */
+
+.rbc-toolbar-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0d3b66;
+  background: linear-gradient(135deg, #f0f6fb, #e6f0f8);
+  padding: 8px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  letter-spacing: 0.5px;
+}
+
+
+/* ======================================================
+   9️⃣ SMART GUTTER CONTROL
+   ------------------------------------------------------
+   DO NOT FORCE WIDTH
+   Let RBC manage layout.
+   Only prevent shrinking too small.
+   ====================================================== */
+
+.rbc-time-gutter {
+  min-width: 55px;
+}
+
+.rbc-label {
+  white-space: nowrap;
+}
+
+
+/* ======================================================
+   🔟 PREVENT OVERLAP (SAFE FLEX FIX)
+   ------------------------------------------------------
+   This ensures:
+   - Time columns align
+   - Headers align
+   - No overlap
+   - No forced min-width
+   ====================================================== */
+
+.rbc-time-content,
+.rbc-time-header-content {
+  min-width: 100%;
+}
+
+
+/* ======================================================
+   1️⃣1️⃣ HIDE ALL-DAY ROW
+   ====================================================== */
+
+.rbc-allday-cell {
+  display: none;
+}
+
+.rbc-time-header-content .rbc-allday-cell {
+  display: none;
+}
+
+/* ==========================================================
+   1️⃣2️⃣ MAKE THE THE TIME INDICATOR STAND big react calendar
+   ========================================================== */
+
+
+/* Make the current time indicator stand out */
+.rbc-current-time-indicator {
+  background-color: #ff2d2d !important;   /* brighter red */
+  height: 2px !important;                 /* thicker line */
+  box-shadow: 0 0 6px rgba(255, 45, 45, 0.8) !important; /* glowing effect */
+  z-index: 9999 !important;
+}
+
+.rbc-current-time-indicator {
+  background-color: #ff0000 !important;
+  height: 2px !important;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.9);
+  animation: pulseTimeLine 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseTimeLine {
+  0% { opacity: 1; }
+  50% { opacity: 0.45; }
+  100% { opacity: 1; }
+}
+
+
+/* ======================================================
+   ================================
+   📱 TABLET (≤ 1024px)
+   ================================
+   ====================================================== */
+
+@media (max-width: 1024px) {
+
+  .calendar-card {
+    padding: 20px;
+  }
+
+  .rbc-calendar {
+    font-size: 0.9rem;
+  }
+
+  .rbc-toolbar-label {
+    font-size: 1.2rem;
+    padding: 6px 16px;
+  }
+}
+
+
+/* ======================================================
+   ================================
+   📱 MOBILE (≤ 768px)
+   ================================
+   ====================================================== */
+
+@media (max-width: 768px) {
+
+  .reservation-page {
+    padding: 20px;
+  }
+
+  .view-switch-edge {
+    position: static;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .calendar-card {
+    padding: 18px;
+  }
+
+  /* Stack custom toolbar */
+  .calendar-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .toolbar-left,
+  .toolbar-center,
+  .toolbar-right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .toolbar-left .ui-btn,
+  .toolbar-right .ui-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .room-badge {
+    width: 100%;
+    max-width: 320px;
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  /* RBC toolbar vertical */
+  .rbc-toolbar {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .rbc-toolbar-label {
+    font-size: 1.1rem;
+    padding: 6px 14px;
+  }
+
+  .rbc-toolbar > .rbc-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .rbc-toolbar button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Let gutter scale naturally */
+  .rbc-time-gutter {
+    min-width: 50px;
+  }
+}
+
+
+/* ======================================================
+   ================================
+   📱 ULTRA SMALL (≤ 480px)
+   ================================
+   ====================================================== */
+
+@media (max-width: 480px) {
+
+  .rbc-calendar {
+    font-size: 0.8rem;
+  }
+
+  .rbc-toolbar-label {
+    font-size: 1rem;
+    padding: 5px 12px;
+  }
+
+  .rbc-time-gutter {
+    min-width: 45px;
+  }
+
+  .rbc-header {
+    font-size: 0.75rem;
+  }
+
+  .rbc-label {
+    font-size: 0.7rem;
+  }
+
+  .rbc-event {
+    font-size: 0.7rem;
+  }
+
+  .rbc-time-slot {
+    min-height: 30px;
+  }
+
+  .ui-btn {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .room-badge {
+    font-size: 0.85rem;
+  }
+}
+

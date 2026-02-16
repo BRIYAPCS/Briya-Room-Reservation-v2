@@ -1,0 +1,41 @@
+/* ======================================================
+   ROOMS PAGE LAYOUT
+   Controls only RoomsPage grid behavior
+   ====================================================== */
+
+.rooms-grid {
+  display: grid;
+
+  /* Desktop: fixed 350px columns */
+  grid-template-columns: repeat(auto-fit, 350px);
+
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Tablet: 2 fixed columns */
+@media (max-width: 1024px) {
+  .rooms-grid {
+    grid-template-columns: repeat(2, 350px);
+    gap: 25px;
+  }
+}
+
+/* Mobile: 2 cards per row */
+@media (max-width: 768px) {
+  .rooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 25px;
+  }
+}
+
+/* Ultra small: 1 column fallback */
+@media (max-width: 320px) {
+  .rooms-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,96 @@
+/* =============================================================================
+   HEADER STYLING
+   -----------------------------------------------------------------------------
+   Controls:
+   - Vertical stacking
+   - Spacing
+   - Responsive behavior
+   - Visual branding consistency
+
+   NOTE:
+   Uses flex + gap so hidden elements do NOT create empty space.
+   ============================================================================= */
+
+
+/* =============================================================================
+   HEADER CONTAINER
+   -----------------------------------------------------------------------------
+   - Flex column layout
+   - gap controls spacing ONLY between visible elements
+   ============================================================================= */
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Space between visible elements only */
+  gap: 15px;
+
+  padding: 50px 20px 0px;
+  text-align: center;
+}
+
+
+/* =============================================================================
+   LOGO
+   ============================================================================= */
+
+.app-header__logo {
+  height: 80px;
+}
+
+
+/* =============================================================================
+   MAIN TITLE (H1)
+   ============================================================================= */
+
+.app-header__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+
+  /* Soft drop shadow improves readability on blue background */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =============================================================================
+   SUBTITLE (H2)
+   Styled as pill badge
+   ============================================================================= */
+
+.app-header__subtitle {
+  padding: 10px 20px;
+  border-radius: 12px;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+
+  backdrop-filter: blur(6px);
+}
+
+
+/* =============================================================================
+   RESPONSIVE BEHAVIOR
+   Adjusts sizing for smaller devices
+   ============================================================================= */
+
+@media (max-width: 768px) {
+
+  .app-header__logo {
+    height: 60px;
+  }
+
+  .app-header__title {
+    font-size: 1.8rem;
+  }
+
+  .app-header__subtitle {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+}

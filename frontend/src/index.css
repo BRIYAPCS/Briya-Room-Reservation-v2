@@ -1,0 +1,48 @@
+/* ======================================================
+   GLOBAL STYLES (index.css)
+   ------------------------------------------------------
+   This file should contain ONLY:
+   - CSS reset / base defaults
+   - Theme variables
+   - Global layout helpers (app-layout/app-content)
+   - Global typography/background
+   ====================================================== */
+
+/* ===== CSS RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #0081c8;               /* Briya blue background */
+  --text: #ffffff;             /* default text (headers etc.) */
+  --radius: 14px;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  width: 100%;
+}
+
+/* ======================================================
+   GLOBAL APP LAYOUT
+   Keeps footer at bottom on short pages
+   ====================================================== */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1; /* grows to fill space between header and footer */
+}

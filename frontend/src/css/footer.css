@@ -1,0 +1,111 @@
+/* =========================================================
+   FOOTER CONTAINER
+   ---------------------------------------------------------
+   - Center aligned
+   - Minimal layout
+   - Fully responsive
+   ========================================================= */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+
+/* =========================================================
+   FOOTER TEXT
+   ---------------------------------------------------------
+   Combined Interactive Effects:
+   - Letter expansion
+   - Glow pulse
+   - Animated underline
+   - Smooth coordinated transitions
+   ========================================================= */
+
+.footer-text {
+  position: relative;
+
+  /* Base color */
+  color: rgba(255, 255, 255, 0.9);
+
+  /* Smooth transitions for multiple properties */
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.3s ease,
+    text-shadow 0.3s ease;
+
+  cursor: default;
+}
+
+
+/* =========================================================
+   UNDERLINE EFFECT (CENTER EXPANSION)
+   ---------------------------------------------------------
+   Uses pseudo-element to animate underline width
+   ========================================================= */
+
+.footer-text::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -4px;
+
+  width: 0;
+  height: 2px;
+
+  background: rgb(255, 255, 255);
+
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+
+
+/* =========================================================
+   HOVER STATE
+   ---------------------------------------------------------
+   Coordinated animation:
+   - Text brightens
+   - Letter spacing expands slightly
+   - Glow activates
+   - Underline expands
+   ========================================================= */
+
+.footer-text:hover {
+  color: white;
+
+  /* Subtle expansion */
+  letter-spacing: 0.8px;
+
+  /* Soft glowing effect */
+  text-shadow:
+    0 0 6px rgba(0, 204, 255, 0.8),
+    0 0 12px rgba(0, 162, 255, 0.5);
+}
+
+.footer-text:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENT
+   ---------------------------------------------------------
+   Slight scaling for small devices
+   Reduces hover intensity for accessibility
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .footer {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .footer-text:hover {
+    /* Reduce letter spacing on smaller screens */
+    letter-spacing: 0.5px;
+  }
+}

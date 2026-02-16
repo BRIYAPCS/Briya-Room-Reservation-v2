@@ -1,0 +1,62 @@
+/* ======================================================
+   HOMEPAGE LAYOUT
+   Controls ONLY HomePage grid behavior
+   ====================================================== */
+
+.site-cards {
+  display: grid;
+
+  /* Desktop: fixed 300px columns */
+  grid-template-columns: repeat(auto-fit, 300px);
+
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Tablet: 2 fixed columns */
+@media (max-width: 1024px) {
+  .site-cards {
+    grid-template-columns: repeat(2, 300px);
+    gap: 25px;
+  }
+}
+
+/* Mobile: 2 cards per row (your screenshot) */
+@media (max-width: 768px) {
+  .site-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 25px;
+  }
+
+  /* Make Home cards taller on phones */
+  .card--home {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* Small phones: still 2 columns, tighter spacing */
+@media (max-width: 375px) {
+  .site-cards {
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .card--home {
+    aspect-ratio: 2 / 3;
+  }
+}
+
+/* Ultra small: fallback to 1 column to prevent overflow */
+@media (max-width: 320px) {
+  .site-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card--home {
+    aspect-ratio: 3 / 5;
+  }
+}
