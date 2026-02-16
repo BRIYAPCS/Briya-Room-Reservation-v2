@@ -1,17 +1,24 @@
-// React core
+// ======================================================
+// APPLICATION ENTRY POINT
+// ------------------------------------------------------
+// Responsible for:
+// - Bootstrapping React
+// - Loading global styles
+// - Rendering <App /> into #root
+// ======================================================
+
+// React Core
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// Global CSS (must be inside src folder)
+// Global CSS
 import "./index.css";
-
-// Root App component
-import App from "./App";
-
 import "./css/design-system.css";
 
+// Root App
+import App from "./App";
 
-// Render application into #root in index.html
+// Mount application
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
